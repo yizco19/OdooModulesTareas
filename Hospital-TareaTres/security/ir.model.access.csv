@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hospital-tarea_tres_hospital-tarea_tres,hospital-tarea_tres.hospital-tarea_tres,model_hospital-tarea_tres_hospital-tarea_tres,base.group_user,1,1,1,1

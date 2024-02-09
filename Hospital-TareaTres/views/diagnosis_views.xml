@@ -1,0 +1,19 @@
+<!-- views/diagnosis_views.xml -->
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_diagnosis_form">
+            <field name="name">hospital.diagnosis.form</field>
+            <field name="model">hospital.diagnosis</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="patient_ids" widget="many2many_tags"/>
+                        <field name="doctor_ids" widget="many2many_tags"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
