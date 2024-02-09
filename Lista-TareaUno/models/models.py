@@ -17,7 +17,10 @@ class lista_tareas(models.Model):
    
     tarea = fields.Char()
     prioridad = fields.Integer()
-    dia = fields.Date()
+    fecha_inicio = fields.Datetime('Fecha inicio')
+    fecha_final = fields.Datetime('Fecha Final')
+    
+    imagen = fields.Image('Imagen Tarea',max_width=200,max_height=200)
 
     #Indicamos que este valor es computado y se computara con la funcion "_value_urgente"
     #Con store=True indicamos que pese a ser computado, cada vez que se compute se guarde en la base de datos
