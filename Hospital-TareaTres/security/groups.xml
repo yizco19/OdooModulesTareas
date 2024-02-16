@@ -1,6 +1,0 @@
-<odoo>
-    <record id="group_user" model="res.groups">
-        <field name="name">User</field>
-        <field name="category_id" ref="base.module_category_user_management"/>
-    </record>
-</odoo>
