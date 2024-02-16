@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
-
-from . import controllers
+# Indicamos que se importe el contenido Python de la carpeta "models"
 from . import models
+from . import controllers

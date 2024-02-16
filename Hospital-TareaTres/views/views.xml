@@ -1,60 +1,87 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
+    <data>
+        <record model="ir.ui.view" id="view_paciente_form">
+            <field name="name">hospital.paciente.form</field>
+            <field name="model">hospital.paciente</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="apellido"/>
+                        <field name="sintoma"/>
+                        <!-- Include additional fields if needed -->
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+
 <!--
-    <record model="ir.ui.view" id="hospital-tarea_tres.list">
-      <field name="name">Hospital-TareaTres list</field>
-      <field name="model">hospital-tarea_tres.hospital-tarea_tres</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
+        <menuitem id="hospital_patient"
+              name="Paciente"
+              parent="hospital_root"/>
+
 -->
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="hospital-tarea_tres.action_window">
-      <field name="name">Hospital-TareaTres window</field>
-      <field name="res_model">hospital-tarea_tres.hospital-tarea_tres</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
+</odoo>
+<odoo>
+    <data>
+        <!-- View for Paciente Form -->
+        <record model="ir.ui.view" id="view_paciente_form">
+            <field name="name">hospital.paciente.form</field>
+            <field name="model">hospital.paciente</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="apellido"/>
+                        <field name="sintoma"/>
+                        <!-- Include additional fields if needed -->
+                    </group>
+                </form>
+            </field>
+        </record>
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="hospital-tarea_tres.action_server">
-      <field name="name">Hospital-TareaTres server</field>
-      <field name="model_id" ref="model_hospital-tarea_tres_hospital-tarea_tres"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
+        <!-- Action for Paciente -->
+        <record model="ir.actions.act_window" id="action_paciente">
+            <field name="name">Paciente</field>
+            <field name="res_model">hospital.paciente</field>
+            <field name="view_mode">form</field>
+        </record>
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="Hospital-TareaTres" id="hospital-tarea_tres.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="hospital-tarea_tres.menu_1" parent="hospital-tarea_tres.menu_root"/>
-    <menuitem name="Menu 2" id="hospital-tarea_tres.menu_2" parent="hospital-tarea_tres.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="hospital-tarea_tres.menu_1_list" parent="hospital-tarea_tres.menu_1"
-              action="hospital-tarea_tres.action_window"/>
-    <menuitem name="Server to list" id="hospital-tarea_tres" parent="hospital-tarea_tres.menu_2"
-              action="hospital-tarea_tres.action_server"/>
--->
-  </data>
+        <!-- Menu Item for Paciente -->
+        <menuitem id="menu_paciente"
+                  name="Paciente"
+                  parent="menu_root"
+                  action="action_paciente"/>
+
+    </data>
+</odoo>
+<odoo>
+    <data>
+        <!-- Menu Item for Diagnostico -->
+        <menuitem name="Hospital" id="hospital_menu_root" />
+
+        <!-- View for Diagnostico Form -->
+        <record model="ir.ui.view" id="view_diagnostico_form">
+            <field name="name">hospital.diagnostico.form</field>
+            <field name="model">hospital.diagnostico</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="paciente_ids" widget="many2many_tags"/>
+                        <field name="medico_ids" widget="many2many_tags"/>
+                        <!-- Include additional fields if needed -->
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="menu_diagnostico"
+                  name="Diagnostico"
+                  parent="hospital_menu_root"
+                  action="action_diagnostico"/>
+        
+
+    </data>
 </odoo>
