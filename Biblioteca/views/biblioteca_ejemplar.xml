@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <record id="view_biblioteca_ejemplar_form" model="ir.ui.view">
+            <field name="name">biblioteca.ejemplar.form</field>
+            <field name="model">biblioteca.ejemplar</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="fecha_alta"/>
+                        <field name="fecha_baja"/>
+                        <field name="comic_id"/>
+                        <field name="socio_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_biblioteca_ejemplar_tree" model="ir.ui.view">
+            <field name="name">biblioteca.ejemplar.tree</field>
+            <field name="model">biblioteca.ejemplar</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nombre"/>
+                    <field name="fecha_alta"/>
+                    <field name="fecha_baja"/>
+                    <field name="comic_id"/>
+                    <field name="socio_id"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+        <!-- Definimos como mostramos la vista en el modelo -->
+    <record id='biblioteca_ejemplar_action' model='ir.actions.act_window'>
+        <field name="name">Ejemplar</field>
+        <!-- Indicamos a que modelo aplica -->
+        <field name="res_model">biblioteca.ejemplar</field>
+        <!-- Indicamos que los comics pueden verse en tree para el listado,
+            y en form para la creación/edición -->
+        <field name="view_mode">tree,form</field>
+    </record>
+        <!--Root-->
+        <menuitem name="Biblioteca ZY" id="biblioteca_base_menu" />
+        <menuitem name="Socio" id="biblioteca_ejemplar" parent="biblioteca_base_menu" action="biblioteca_ejemplar_action"/>
+</odoo>
